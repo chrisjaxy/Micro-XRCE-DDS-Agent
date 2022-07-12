@@ -33,7 +33,7 @@ SerialAgent::SerialAgent(
           std::bind(&SerialAgent::write_data, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3),
           std::bind(&SerialAgent::read_data, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4))
 {}
-
+/*串口写数据*/
 ssize_t SerialAgent::write_data(
         uint8_t* buf,
         size_t len,
@@ -48,10 +48,11 @@ ssize_t SerialAgent::write_data(
     else
     {
         transport_rc = TransportRc::server_error;
+        printf("write error");
     }
     return rv;
 }
-
+/*串口读数据*/
 ssize_t SerialAgent::read_data(
         uint8_t* buf,
         size_t len,
@@ -133,11 +134,11 @@ bool SerialAgent::send_message(
         uint32_t raw_client_key;
         if (Server<SerialEndPoint>::get_client_key(output_packet.destination, raw_client_key))
         {
-            UXR_AGENT_LOG_MESSAGE(
-                UXR_DECORATE_YELLOW("[** <<SER>> **]"),
-                raw_client_key,
-                output_packet.message->get_buf(),
-                output_packet.message->get_len());
+            // UXR_AGENT_LOG_MESSAGE(
+            //     UXR_DECORATE_YELLOW("[** <<SER>> **]"),
+            //     raw_client_key,
+            //     output_packet.message->get_buf(),
+            //     output_packet.message->get_len());
         }
     }
     return rv;

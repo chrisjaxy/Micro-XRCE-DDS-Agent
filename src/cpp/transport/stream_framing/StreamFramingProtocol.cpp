@@ -104,6 +104,7 @@ size_t FramingIO::write_framed_msg(
     return cond ? len : 0;
 }
 
+/*校验*/
 size_t FramingIO::read_framed_msg(
         uint8_t* buf,
         size_t len,
@@ -150,6 +151,7 @@ size_t FramingIO::read_framed_msg(
                     else
                     {
                         exit_cond = true;
+                        printf("exit in line %d \r\n", __LINE__);
                     }
                     break;
                 }
@@ -168,6 +170,7 @@ size_t FramingIO::read_framed_msg(
                         if (framing_begin_flag != remote_addr_)
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -193,6 +196,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -217,6 +221,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -232,6 +237,7 @@ size_t FramingIO::read_framed_msg(
                         {
                             state_ = InputState::UXR_FRAMING_UNINITIALIZED;
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                         else
                         {
@@ -251,6 +257,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -281,6 +288,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -305,6 +313,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -318,6 +327,10 @@ size_t FramingIO::read_framed_msg(
                         {
                             remote_addr = remote_addr_;
                             rv = msg_len_;
+                        }
+                        else
+                        {
+                            printf("error crc \r\n");
                         }
                         exit_cond = true;
                     }
@@ -334,6 +347,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -436,7 +450,7 @@ bool FramingIO::transport_write(
 
     return false;
 }
-
+/*读数据*/
 size_t FramingIO::transport_read(
         int& timeout,
         TransportRc& transport_rc,

@@ -126,11 +126,11 @@ bool Replier::write(
     bool rv = false;
     if (proxy_client_->get_middleware().write_reply(get_raw_id(), write_data.data().serialized_data()))
     {
-        UXR_AGENT_LOG_MESSAGE(
-            UXR_DECORATE_YELLOW("[** <<DDS>> **]"),
-            get_raw_id(),
-            write_data.data().serialized_data().data(),
-            write_data.data().serialized_data().size());
+        // UXR_AGENT_LOG_MESSAGE(
+        //     UXR_DECORATE_YELLOW("[** <<DDS>> **]"),
+        //     get_raw_id(),
+        //     write_data.data().serialized_data().data(),
+        //     write_data.data().serialized_data().size());
         rv = true;
     }
     return rv;
@@ -186,11 +186,11 @@ bool Replier::read_fn(
     bool rv = false;
     if (proxy_client_->get_middleware().read_request(get_raw_id(), data, timeout))
     {
-        UXR_AGENT_LOG_MESSAGE(
-            UXR_DECORATE_YELLOW("[==>> DDS <<==]"),
-            get_raw_id(),
-            data.data(),
-            data.size());
+        // UXR_AGENT_LOG_MESSAGE(
+        //     UXR_DECORATE_YELLOW("[==>> DDS <<==]"),
+        //     get_raw_id(),
+        //     data.data(),
+        //     data.size());
         rv = true;
     }
     return rv;

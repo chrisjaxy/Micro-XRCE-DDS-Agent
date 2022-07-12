@@ -173,11 +173,11 @@ bool DataReader::read_fn(
     bool rv = false;
     if (proxy_client_->get_middleware().read_data(get_raw_id(), data, timeout))
     {
-        UXR_AGENT_LOG_MESSAGE(
-            UXR_DECORATE_YELLOW("[==>> DDS <<==]"),
-            get_raw_id(),
-            data.data(),
-            data.size());
+        // UXR_AGENT_LOG_MESSAGE(
+        //     UXR_DECORATE_YELLOW("[==>> DDS <<==]"),
+        //     get_raw_id(),
+        //     data.data(),
+        //     data.size());
         rv = true;
     }
     return rv;

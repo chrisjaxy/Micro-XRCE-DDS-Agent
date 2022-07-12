@@ -131,11 +131,11 @@ bool Requester::write(
 
     if (proxy_client_->get_middleware().write_request(get_raw_id(), sequence_number,  write_data.data().serialized_data()))
     {
-        UXR_AGENT_LOG_MESSAGE(
-            UXR_DECORATE_YELLOW("[** <<DDS>> **]"),
-            get_raw_id(),
-            write_data.data().serialized_data().data(),
-            write_data.data().serialized_data().size());
+        // UXR_AGENT_LOG_MESSAGE(
+        //     UXR_DECORATE_YELLOW("[** <<DDS>> **]"),
+        //     get_raw_id(),
+        //     write_data.data().serialized_data().data(),
+        //     write_data.data().serialized_data().size());
         rv = true;
     }
 
@@ -208,11 +208,11 @@ bool Requester::read_fn(
         request.serialize(serializer);
         serializer.serializeArray(temp_data.data(), temp_data.size());
 
-        UXR_AGENT_LOG_MESSAGE(
-            UXR_DECORATE_YELLOW("[==>> DDS <<==]"),
-            get_raw_id(),
-            temp_data.data(),
-            temp_data.size());
+        // UXR_AGENT_LOG_MESSAGE(
+        //     UXR_DECORATE_YELLOW("[==>> DDS <<==]"),
+        //     get_raw_id(),
+        //     temp_data.data(),
+        //     temp_data.size());
         rv = true;
     }
     return rv;
