@@ -33,7 +33,7 @@ SerialAgent::SerialAgent(
           std::bind(&SerialAgent::write_data, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3),
           std::bind(&SerialAgent::read_data, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4))
 {}
-
+/*串口写数据*/
 ssize_t SerialAgent::write_data(
         uint8_t* buf,
         size_t len,
@@ -51,7 +51,7 @@ ssize_t SerialAgent::write_data(
     }
     return rv;
 }
-
+/*串口读数据*/
 ssize_t SerialAgent::read_data(
         uint8_t* buf,
         size_t len,

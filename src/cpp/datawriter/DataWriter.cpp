@@ -116,7 +116,7 @@ bool DataWriter::matched(const dds::xrce::ObjectVariant& new_object_rep) const
     }
     return rv;
 }
-
+/*发布者发布数据*/
 bool DataWriter::write(dds::xrce::WRITE_DATA_Payload_Data& write_data)
 {
     bool rv = false;

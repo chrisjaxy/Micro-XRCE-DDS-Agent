@@ -29,7 +29,7 @@ AgentInstance& AgentInstance::getInstance()
     static AgentInstance instance;
     return instance;
 }
-
+/*开始判断通信方式*/
 bool AgentInstance::create(
         int argc,
         char** argv)

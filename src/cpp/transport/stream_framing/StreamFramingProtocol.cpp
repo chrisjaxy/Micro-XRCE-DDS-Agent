@@ -104,6 +104,7 @@ size_t FramingIO::write_framed_msg(
     return cond ? len : 0;
 }
 
+/*校验*/
 size_t FramingIO::read_framed_msg(
         uint8_t* buf,
         size_t len,
@@ -193,6 +194,7 @@ size_t FramingIO::read_framed_msg(
                         else
                         {
                             exit_cond = true;
+                            printf("exit in line %d \r\n", __LINE__);
                         }
                     }
                     break;
@@ -436,7 +438,7 @@ bool FramingIO::transport_write(
 
     return false;
 }
-
+/*读数据*/
 size_t FramingIO::transport_read(
         int& timeout,
         TransportRc& transport_rc,

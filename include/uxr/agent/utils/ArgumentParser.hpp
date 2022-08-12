@@ -1016,6 +1016,7 @@ public:
     bool launch_agent()
     {
         agent_server_.reset(new AgentType(ip_args_.port(), utils::get_mw_kind(common_args_.middleware())));
+        /*开始*/
         if (agent_server_->start())
         {
             common_args_.apply_actions(agent_server_);
@@ -1203,6 +1204,7 @@ template<> inline bool ArgumentParser<CanAgent>::launch_agent()
 /*************************************************************************************************
  * Helper functions to create and launch a microXRCE-DDS agent in a separate thread
  *************************************************************************************************/
+/*HELPER*/
 template <typename AgentKind>
 inline std::thread create_agent_thread(
         int argc,

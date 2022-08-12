@@ -55,7 +55,7 @@ Server<EndPoint>::~Server()
 {
     delete processor_;
 }
-
+/*创建接送发送处理等线程*/
 template<typename EndPoint>
 bool Server<EndPoint>::start()
 {

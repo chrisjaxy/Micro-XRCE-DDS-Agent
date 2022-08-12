@@ -13,9 +13,15 @@
 // limitations under the License.
 
 #include <uxr/agent/AgentInstance.hpp>
-
+/*主函数开始*/
 int main(int argc, char** argv)
 {
+    printf("%d\r\n", argc);
+    for (size_t i = 0; i < argc; i++)
+    {
+        printf("%s", argv[i]);
+    }
+    
     eprosima::uxr::AgentInstance& agent_instance = agent_instance.getInstance();
 
     if (!agent_instance.create(argc, argv))
